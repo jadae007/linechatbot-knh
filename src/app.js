@@ -4,6 +4,7 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const cors = require('cors')
 const bodyParser = require('body-parser')
+const helmet = require('helmet')
 
 const indexRouter = require('./routes/index');
 const opdAuthCode = require('./routes/opdAuthCode');
@@ -11,6 +12,7 @@ const app = express();
 
 app.use(logger('dev'));
 app.use(cors())
+app.use(helmet())
 app.use(express.json());
 app.use(bodyParser.urlencoded({extended: false}))
 app.use(bodyParser.json())
